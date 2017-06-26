@@ -17,7 +17,13 @@ for i=1:num_features
     fprintf('%d\n' , i)
     % m = cell2mat(input(i))
     % str = mat2str(m)
-    fprintf('%s\n', input{i})
+    % 单元格操作要用{}
+    line = input{i}
+    fprintf('%s\n', line)
+    % w = strread(line,'%s')
+    res = strsplit(line)
+    pic_order = res{1} % 图片分类号
+    comma_feature_str = res{2} % 特征字符串0,0,3,5,7... 
 end
 
 
