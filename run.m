@@ -13,8 +13,11 @@ sigma = 0.1
 fprintf('---------解压特征-------------\n')
 [input] = textread( 'feature1.txt', '%s' , 'delimiter' , '\n' , 'headerlines' , 1)
 [num_features,]=size(input)
-for x=1:num_features
-    fprintf('%d\n' , x)
+for i=1:num_features
+    fprintf('%d\n' , i)
+    % m = cell2mat(input(i))
+    % str = mat2str(m)
+    fprintf('%s\n', input{i})
 end
 
 
