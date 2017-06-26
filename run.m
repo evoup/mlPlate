@@ -1,7 +1,7 @@
 % X是特征向量1，y是类别编号
-X=[1,2,3]
+X=[1,2,3;4,5,6;7,8,9]
 y=[4,5,6]
-X=X'
+%X=X'
 y=y'
 %plot(X,y)
 C = 1
@@ -24,6 +24,11 @@ for i=1:num_features
     res = strsplit(line)
     pic_order = res{1} % 图片分类号
     comma_feature_str = res{2} % 特征字符串0,0,3,5,7... 
+    feature = strsplit(comma_feature_str, ',')
+    [num_feature_elements, ] =size(feature') 
+    %for j 1:num_feature_elements
+    %X(i) = feature
+    %y(i) = pic_order
 end
 
 
