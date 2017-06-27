@@ -45,12 +45,13 @@ end
 
 
 % model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma)); 
-X=[1,2,3]
-X=X'
-y=[1,2,3]
-y=y'
+#X=[1,2,3]
+X= sparse(X)
+#y=[1,2,3]
+#y=y'
 
-[heart_scale_label, heart_scale_inst] = libsvmread('../heart_scale');
+model = svmtrain(y, X, '-c 1 -g 0.07');
+[predict_label, accuracy, dec_values] = svmpredict(y, X, model);
 %model = svmtrain(y,X)
 
 
