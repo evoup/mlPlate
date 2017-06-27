@@ -10,7 +10,7 @@ while ischar(tline)
         c=strsplit(tline)
         c{1} % 4为自然序号，显然用不着
         c{2} % 实际的文字索引直接写入向量
-        vc=[v,str2num(c{2})]
+        vc=[vc,str2num(c{2})]
     end
 end
 fclose(fid);

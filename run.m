@@ -1,5 +1,4 @@
 tic;
-clear
 % X是特征向量1，y是类别编号
 %X=[1,2,3;4,5,6;7,8,9]
 %y=[4,5,6]
@@ -9,6 +8,7 @@ clear
 C = 1
 sigma = 0.1
 %M2 = dlmread("feature1.txt")
+ReadCharIndexCSV % 获取对照表vc 
 [input] = textread('feature1.txt','%s');
 
 
@@ -38,7 +38,8 @@ for i=1:num_features
         X_element = [X_element,str2num(feature{j})]
     end
     X = [X;[X_element]]
-    y = [y;str2num(pic_order)]
+    % y = [y;str2num(pic_order)]
+    y = [y; vc(str2num(pic_order))]
     %X(i) = feature
     %y(i) = pic_order
 end
