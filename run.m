@@ -14,6 +14,9 @@ ReadCharIndexCSV % 获取对照表vc
 
 fprintf('---------解压特征-------------\n')
 [input] = textread( 'feature1.txt', '%s' , 'delimiter' , '\n')
+[input2] = textread('feature4.txt', '%s' , 'delimiter' , '\n')
+input = [input,input2]
+
 y=[]
 X=[]
 %[num_features,]=size(input)
