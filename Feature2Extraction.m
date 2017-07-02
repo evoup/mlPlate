@@ -23,7 +23,7 @@ end
 
 
 C=reshape(M,1,72)
-[a,b]=size(C)
+[a,b]=size(M)
 fprintf(fid,'%d',k);
 fprintf(fid,'%s','       ');
 for i=1:a+b-1
