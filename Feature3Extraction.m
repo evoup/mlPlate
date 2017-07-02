@@ -1,4 +1,4 @@
-%function Feature3Extraction()
+function Feature3Extraction()
 [input1, input2, input3] = textread('Char_Index.txt','%d %d %s',1000, 'headerlines',1);%读取图片的编号，类别信息和文件名
 indexFileName = input3;%获得文件名
 fid=fopen('feature3.txt','w+');%打开feature3.txt，用以储存特征3的数据
@@ -54,6 +54,11 @@ end
 
 fprintf(fid,'%d',k);
 fprintf(fid,'%s','       ');
+M = [M_left]
+M = [M,M_right]
+M = [M, M_top]
+M = [M, M_bottom]
+C = M
 for i=1:a+b-1
   fprintf(fid,'%d',C(1,i));%将特征向量写入文本
   fprintf(fid,'%s',',');%用逗号隔开
