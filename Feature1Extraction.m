@@ -3,7 +3,6 @@ function Feature1Extraction()
 indexFileName = input3;%获得文件名
 fid=fopen('feature1.txt','w+');%打开feature1.txt，用以储存特征1的数据
 for k=1:1000 %共1000个图片
-#A=imread(strcat('Char_Image_Binary\',char(indexFileName(k,1))));%读入图片
 A=imread(strcat('Char_Image_Binary/',char(indexFileName(k,1))));%读入图片
 t=graythresh(A); %取阈值
 B=im2bw(A,t);%二值化，B为二值化后的图像矩阵，每个元素的值为0或1
@@ -13,7 +12,7 @@ C=zeros(1,a+b);%定义特征向量
 for i=1:a
     for j=1:b
         if(B(i,j)==1)
-            C(1,i)=C(1,i)+1;%如果行中的元素为白色，则增加1，最终结果为每一行的白点数
+            C(1,i)=C(1,i)+1%如果行中的元素为白色，则增加1，最终结果为每一行的白点数
         end
     end
 end
@@ -21,7 +20,7 @@ end
 for j=1:b
     for i=1:a
         if(B(i,j)==1)
-            C(1,a+j)=C(1,a+j)+1;%最终结果为每一列的白点数
+            C(1,a+j)=C(1,a+j)+1%最终结果为每一列的白点数
         end
     end
 end
