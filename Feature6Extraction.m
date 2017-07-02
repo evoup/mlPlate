@@ -1,7 +1,7 @@
-function Feature2Extraction()
+function Feature6Extraction()
 [input1, input2, input3] = textread('Char_Index.txt','%d %d %s',1000, 'headerlines',1);%读取图片的编号，类别信息和文件名
 indexFileName = input3;%获得文件名
-fid=fopen('feature2.txt','w+');%打开feature2.txt，用以储存特征2的数据
+fid=fopen('feature6.txt','w+');%打开feature6.txt，用以储存特征6的数据
 for k=1:1000 %共1000个图片
 A=imread(strcat('Char_Image_Binary/',char(indexFileName(k,1))));%读入图片
 t=graythresh(A); %取阈值
@@ -15,7 +15,7 @@ for i=1:a
     for j=1:b
         ceil(j)
         if(B(i,j)==1)
-            M(ceil(i/8),ceil(j/8))=M(ceil(i/8),ceil(j/8))+1
+            M(ceil(i/6),ceil(j/6))=M(ceil(i/6),ceil(j/6))+1
         end
     end
 end
