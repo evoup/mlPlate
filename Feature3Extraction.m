@@ -9,22 +9,48 @@ B=im2bw(A,t);%二值化，B为二值化后的图像矩阵，每个元素的值�
 [a,b]=size(B);
 C=zeros(1,a+b);%定义特征向量
 
+
+%M=zeros(1,92+92+47+47)
+M_left=zeros(1,92)
+M_right=zeros(1,92)
+M_top=zeros(1,47)
+M_bottom=zeros(1,47)
+
+%左
 for i=1:a
     for j=1:b
         if(B(i,j)==1)
-            C(1,i)=C(1,i)+1%如果行中的元素为白色，则增加1，最终结果为每一行的白点数
+            M_left(1,j)=j
         end
     end
 end
 
+%右
+for i=1:a
+    for j=b:-1:1
+        if(B(i,j)==1)
+            M_right(1,j)=j
+        end
+    end
+end
+
+%上
 for j=1:b
     for i=1:a
         if(B(i,j)==1)
-            C(1,a+j)=C(1,a+j)+1%最终结果为每一列的白点数
+            M_top(1,j)=i
         end
     end
 end
 
+%下
+for j=1:b
+    for i=a:-1:1
+        if(B(i,j)==1)
+            M_bottom(1,j)=i
+        end
+    end
+end
 
 fprintf(fid,'%d',k);
 fprintf(fid,'%s','       ');
